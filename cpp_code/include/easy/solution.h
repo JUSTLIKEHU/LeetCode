@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include <any>
 #include <cstdlib>
 #include <string>
 #include <iostream>
@@ -24,6 +25,28 @@ class Solution_easy {
         std::atexit(&Solution_easy::destorySingleton);
       });
     return *instance_;
+  }
+
+  template <typename Ret, typename... Args>
+  void registerFunction(const std::string &name,
+                        Ret (Solution_easy::*func)(Args...)) {
+    auto lambda = [this, func](Args... args) -> Ret {
+      return (this->*func)(args...);
+    };
+    std::function<Ret(Args...)> lambda_func = lambda;
+    funcMap_[name] = lambda_func;
+  }
+
+  template <typename Ret, typename... Args>
+  Ret callFunction(const std::string &name, Args... args) {
+    auto it = funcMap_.find(name);
+    if (it != funcMap_.end()) {
+      auto func = std::any_cast<std::function<Ret(Args...)>>(it->second);
+      return func(args...);
+    } else {
+      throw std::runtime_error(
+          "Function not found or incorrect argument types.");
+    }
   }
 
   /**
@@ -88,6 +111,8 @@ class Solution_easy {
     std::cout << "destory singleton, delete soulution_easy" << std::endl;
     delete instance_;
   }
+
+  std::map<std::string, std::any> funcMap_;
 
   inline static Solution_easy* instance_ = nullptr;
   inline static std::once_flag onceFlag_;

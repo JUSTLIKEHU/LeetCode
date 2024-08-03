@@ -1,4 +1,4 @@
-#include "solution.h"
+#include "easy/solution.h"
 
 int Solution_easy::romanToInt(string s) {
   std::map<char, int> roman = {{'I', 1},   {'V', 5},   {'X', 10},  {'L', 50},
