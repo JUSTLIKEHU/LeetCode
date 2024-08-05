@@ -120,7 +120,7 @@ class Solution_easy : public solutionBase{
   **/
   static bool isPalindrome(int x);
 
-private:
+ private:
   Solution_easy(){
     std::cout << "Solution_easy instance created." << std::endl;
   }

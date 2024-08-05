@@ -24,7 +24,7 @@ TEST_F(IsPalindromeTest, NegativeNumber) {
 
 // 定义一个测试函数来检查以零结尾的非零数是否为回文（例如：0 和 10）
 TEST_F(IsPalindromeTest, TrailingZeroes) {
-    EXPECT_FALSE(Solution_easy::isPalindrome(0)); // 应返回 false，因为题目要求 (x % 10 == 0 && x != 0)，即非零结尾的数应该被排除
+    EXPECT_TRUE(Solution_easy::isPalindrome(0)); // 应返回 false，因为题目要求 (x % 10 == 0 && x != 0)，即非零结尾的数应该被排除
     EXPECT_FALSE(Solution_easy::isPalindrome(10)); // 应返回 false，同上
 }
 
