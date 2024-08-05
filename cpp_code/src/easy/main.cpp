@@ -9,9 +9,13 @@ int main(int argc, char** argv) {
 
   solution_easy.registerFunction("romanToInt", &Solution_easy::romanToInt);
 
+  solution_easy.registerStaticFunction("isPalindrome", &Solution_easy::isPalindrome);
+
   try {
     auto res = solution_easy.callFunction<int, std::string>("romanToInt", "IV");
     print(res);
+    auto res2 = solution_easy.callStaticFunction<bool, int>( "isPalindrome", 100);
+    print(res2);
   } catch (const std::exception &e) {
     std::cout << e.what() << '\n';
   }
