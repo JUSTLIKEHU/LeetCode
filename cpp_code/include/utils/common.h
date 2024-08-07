@@ -11,3 +11,4 @@
   do {                                                             \
     global_obj.registerStaticFunction(#func_name, func_ptr);    \
   } while (0)
+  

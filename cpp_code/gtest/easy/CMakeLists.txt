@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
 
-link_libraries(gtest gmock pthread easy_lib)
-add_executable("IsPalindromeTest" test_isPalindrome.cpp)
-add_executable("romanToIntTest" romanToInt_test.cpp)
+project(gtest_leetcode_easy)
+
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.c*")
+add_executable(${PROJECT_NAME} ${SOURCES})
+target_link_libraries(${PROJECT_NAME} gtest_main gtest gmock pthread easy_lib)
 
 
-install(TARGETS "IsPalindromeTest" DESTINATION ${CMAKE_SOURCE_DIR}/build/bin)
-install(TARGETS "romanToIntTest" DESTINATION ${CMAKE_SOURCE_DIR}/build/bin)
+install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_SOURCE_DIR}/build/bin)
