@@ -16,6 +16,17 @@ void print(T t){
   std::cout << t << std::endl;
 }
 
+/**
+ * Definition for singly-linked list.
+ */
+struct ListNode {
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution_easy : public solutionBase{
  public:
 
@@ -138,6 +149,38 @@ class Solution_easy : public solutionBase{
   @return {string}
   **/
   std::string longestCommonPrefix(std::vector<std::string>& strs);
+
+  /**
+  @brief
+  Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+  An input string is valid if:
+  Open brackets must be closed by the same type of brackets.
+  Open brackets must be closed in the correct order.
+  Every close bracket has a corresponding open bracket of the same type.
+  Example 1:
+    Input: s = "()"
+    Output: true
+  Example 2:
+    Input: s = "()[]{}"
+    Output: true
+  Example 3:
+    Input: s = "(]"
+    Output: false
+  Constraints:
+    1 <= s.length <= 10^4
+    s consists of parentheses only '()[]{}'.
+  @param {string} s
+  @return {bool}
+  **/
+  bool isValid(std::string s);
+
+  /**
+  @brief Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.
+        see https://leetcode.com/problems/merge-two-sorted-lists/
+  @param {ListNode} l1 {ListNode} l2
+  @return {ListNode}
+  **/
+  ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
 
  private:
   Solution_easy(){
