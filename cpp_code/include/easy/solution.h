@@ -182,7 +182,19 @@ class Solution_easy : public solutionBase{
   **/
   ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
 
- private:
+  /**
+  @brief
+    Given an array of integers, remove the duplicates in-place such that each
+    element appears only once. The relative order of the elements should be kept
+    the same. Return the new length of the array. Do not allocate extra space for
+    another array, you must do this by modifying the input array in-place with
+    O(1) extra memory.
+  @param {vector<int>} nums
+  @return {int}
+  **/
+  int removeDuplicates(std::vector<int> &nums);
+
+private:
   Solution_easy(){
     std::cout << "Solution_easy instance created." << std::endl;
   }
