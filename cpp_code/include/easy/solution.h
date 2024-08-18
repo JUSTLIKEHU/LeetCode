@@ -9,6 +9,7 @@
 #include <mutex>
 #include <map>
 #include <functional>
+#include <vector>
 using namespace std;
 
 template<typename T>
@@ -188,11 +189,54 @@ class Solution_easy : public solutionBase{
     element appears only once. The relative order of the elements should be kept
     the same. Return the new length of the array. Do not allocate extra space for
     another array, you must do this by modifying the input array in-place with
-    O(1) extra memory.
+    O(1) extra memory. see https://leetcode.com/problems/remove-duplicates-from-sorted-array/
   @param {vector<int>} nums
   @return {int}
   **/
   int removeDuplicates(std::vector<int> &nums);
+
+  /**
+  @brief
+    Implement strStr().
+    Return the index of the first occurrence of needle in haystack, or -1 if
+    needle is not part of haystack. More details see https://leetcode.com/problems/find-the-index-of-the-occurrence-in-a-string/
+  @param {string} haystack {string} needle
+  @return {int}
+  **/
+  int strStr(std::string haystack, std::string needle);
+
+  /**
+  @brief
+    Given a string s consists of upper/lower-case alphabets and empty space
+    characters ' ', return the length of last word in the string. If the last
+    word does not exist, return 0. More details see
+    https://leetcode.com/problems/length-of-last-word/
+  @param {string} s
+  @return {int}
+  **/
+  int lengthOfLastWord(std::string s);
+
+  /**
+  @brief
+    Given a non-empty array of digits representing a non-negative integer, plus
+    one to the integer. The digits are stored such that the most significant
+    digit is at the head of the list, and each element in the array contain a
+    single digit. You may assume the integer does not contain any leading zero,
+    except the number 0 itself. More details see
+    https://leetcode.com/problems/plus-one/
+  @param{vector<int>} digits
+  @return{vector<int>}
+  **/
+  std::vector<int> plusOne(std::vector<int> &digits);
+
+  /**
+  @brief
+    Given two binary strings a and b, return their sum as a binary string. More
+    details see https://leetcode.com/problems/add-binary/
+  @param {string} a {string} b
+  @return {string}
+  **/
+  std::string addBinary(std::string a, std::string b);
 
 private:
   Solution_easy(){

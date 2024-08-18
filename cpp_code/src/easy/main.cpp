@@ -22,6 +22,8 @@ int main(int argc, char **argv) {
                                   &Solution_easy::longestCommonPrefix);
   REGISTER_SOLUTION_EASY_FUNCTION(g_solution_easy, isValid, &Solution_easy::isValid);
 
+  REGISTER_SOLUTION_EASY_FUNCTION(g_solution_easy, plusOne, &Solution_easy::plusOne);
+
   try {
     // auto res =
     //     g_solution_easy.callFunction<int, std::string>("romanToInt", "IV");
@@ -34,8 +36,13 @@ int main(int argc, char **argv) {
     //     g_solution_easy.callFunction<std::string, std::vector<std::string> &>(
     //         "longestCommonPrefix", strs);
     // print(res3);
-    auto res4 = g_solution_easy.callFunction<bool, std::string>("isValid", "()");
-    print(res4);
+    // auto res4 = g_solution_easy.callFunction<bool, std::string>("isValid", "()");
+    // print(res4);
+    std::vector<int> nums = {9, 8};
+    auto res5 = g_solution_easy.callFunction<std::vector<int>, std::vector<int>&>("plusOne", nums);
+    for(auto i : res5)
+      print(i);
+
     
   } catch (const std::exception &e) {
     std::cout << e.what() << '\n';
